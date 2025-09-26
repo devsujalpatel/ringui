@@ -15,7 +15,7 @@ interface PreviewProps {
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "https://ui.codesnipet.com";
+  : "http://localhost:3000";
 
 export function Preview({
   children,
@@ -33,12 +33,12 @@ export function Preview({
         <PreviewContent link={link} prePath={prePath} isBlock={isBlock} />
 
         {useIframe ? (
-          <div className="w-full my-4 border rounded-2xl border-zinc-400 dark:border-zinc-700">
-            <div className="relative w-full h-[100dvh] overflow-hidden">
+          <div className="my-4 w-full rounded-2xl border border-zinc-400 dark:border-zinc-700">
+            <div className="relative h-[100dvh] w-full overflow-hidden">
               <iframe
                 title={link}
                 src={`${prePath}/preview/${link}`}
-                className="w-full h-full overflow-y-auto list-none"
+                className="h-full w-full list-none overflow-y-auto"
                 style={{
                   border: "none",
                   transform: "scale(0.95)",
@@ -49,20 +49,20 @@ export function Preview({
         ) : (
           <div
             className={cn(
-              "p-2 md:p-8 flex justify-center items-center relative border rounded-2xl my-4 border-zinc-400 dark:border-zinc-800 not-prose",
+              "not-prose relative my-4 flex items-center justify-center rounded-2xl border border-zinc-400 p-2 md:p-8 dark:border-zinc-800",
               compact ? "min-h-[100px]" : "min-h-[400px]",
-              isBlock ? "md:p-0" : ""
+              isBlock ? "md:p-0" : "",
             )}
           >
             {children}
           </div>
         )}
         {comment.length > 0 && (
-          <div className="flex flex-wrap gap-3 mt-6">
+          <div className="mt-6 flex flex-wrap gap-3">
             {comment.map((text, index) => (
               <div
                 key={index}
-                className="px-4 py-2 text-sm font-medium bg-purple-100 dark:bg-purple-950/30 rounded-lg text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50 shadow-xs hover:bg-purple-200/70 dark:hover:bg-purple-950/50 transition-colors"
+                className="rounded-lg border border-purple-200 bg-purple-100 px-4 py-2 text-sm font-medium text-purple-700 shadow-xs transition-colors hover:bg-purple-200/70 dark:border-purple-800/50 dark:bg-purple-950/30 dark:text-purple-300 dark:hover:bg-purple-950/50"
               >
                 {text}
               </div>
