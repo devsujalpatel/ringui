@@ -4,24 +4,24 @@ import type { Metadata } from "next";
 // import { usePathname } from "next/navigation";
 
 export const metadata: Metadata = {
-    title: {
-        template: "%s | CodeSnippet UI - Open Source Components",
-        default: "CodeSnippet UI - Open Source Components",
-    },
+  title: {
+    template: "%s | Ring UI - Open Source Components",
+    default: "Ring UI - Open Source Components",
+  },
 };
 
 export default function HomeLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
-        <>
-            <Header />
-            <main className="relative w-full pt-0 md:pt-0 bg-white dark:bg-black">
-                {children}
-            </main>
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <main className="relative w-full bg-white pt-0 md:pt-0 dark:bg-black">
+        {children}
+      </main>
+      <Footer />
+    </>
+  );
 }
