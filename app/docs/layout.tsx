@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | ringui - Free UI Components to build beautiful websites",
-    default: "ringui - Free UI Components to build beautiful websites",
+    template: "%s | Ring UI - Free UI Components to build beautiful websites",
+    default: "Ring UI - Free UI Components to build beautiful websites",
   },
 };
 

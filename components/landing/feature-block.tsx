@@ -81,9 +81,8 @@ export default function Features() {
                     onMouseLeave={handleMouseLeave}
                 >
                     <Image
-                        src="/motion.png"
+                        src="/motion.svg"
                         alt="Motion"
-                        className="rounded-full"
                         width={32}
                         height={32}
                     />

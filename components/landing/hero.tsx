@@ -114,7 +114,7 @@ export function HeroSection() {
           className="grid w-full grid-cols-1 items-center justify-center gap-6 md:grid-cols-2"
         >
           {/* Card component */}
-          <div className="flex w-full flex-col items-center justify-center col-span-2">
+          <div className="col-span-2 flex w-full flex-col items-center justify-center">
             {/* <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
               {"<Card/>"}
             </span>
@@ -147,7 +147,7 @@ export function HeroSection() {
           <AIInput_01 />
           {/* <div className="flex h-48 w-full items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800">
             // {/* <AIInput_04 /> */}
-          {/* </div> */} 
+          {/* </div> */}
         </motion.div>
 
         {/* Bottom row: Buttons on left, Input on right */}
@@ -164,10 +164,10 @@ export function HeroSection() {
             </span>
             <div className="flex h-48 w-full flex-col items-center justify-center gap-3 rounded-xl border border-zinc-200 dark:border-zinc-800">
               <Link href="/docs/components/button">
-                <Btn01 className=" w-42 py-5" />
+                <Btn01 className="w-42 py-5" />
               </Link>
               {/* <Link href="/docs/components/button"> */}
-                {/* <Btn03 className=" w-42 py-5" /> */}
+              {/* <Btn03 className=" w-42 py-5" /> */}
               {/* </Link> */}
             </div>
           </div>
@@ -177,7 +177,9 @@ export function HeroSection() {
             <span className="mb-2 block text-center text-sm text-zinc-500 dark:text-zinc-400">
               Input
             </span>
-            <Link href="/docs/components/input"><Input_01 /></Link>
+            <Link href="/docs/components/input">
+              <Input_01 />
+            </Link>
           </div>
         </motion.div>
       </div>
