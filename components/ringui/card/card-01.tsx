@@ -49,7 +49,7 @@ const defaultProps: Card01Props = {
     text: "Just launched Ring UI! Check out the documentation and let me know what you think 🎨",
     link: {
       title: "Ring UI Documentation",
-      description: "A comprehensive guide to CodeSnippet UI",
+      description: "A comprehensive guide to Ring UI",
       icon: <LinkIcon className="h-5 w-5 text-blue-500" />,
     },
   },
