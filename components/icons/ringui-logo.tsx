@@ -4,10 +4,9 @@ interface RingUiProps {
   width?: number;
   height?: number;
   fill?: string;
-  className?: string;
 }
 
-export const RingUi = ({ width, height, fill = "#FBC02D", className }: RingUiProps) => {
+export const RingUi = ({ width = 24, height = 24, fill = "#FBC02D" }: RingUiProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

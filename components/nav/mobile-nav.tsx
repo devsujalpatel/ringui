@@ -23,10 +23,10 @@ export function MobileNav({
   onItemClick,
 }: MobileNavProps) {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-center items-end px-4 pb-6">
+    <div className="fixed right-0 bottom-0 left-0 z-50 flex items-end justify-center px-4 pb-6 md:hidden">
       {isExpanded && (
         <div
-          className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-xs transition-opacity duration-300 ease-in-out"
+          className="fixed inset-0 bg-black/20 backdrop-blur-xs transition-opacity duration-300 ease-in-out dark:bg-black/40"
           onClick={onExpandToggle}
         />
       )}
@@ -37,20 +37,20 @@ export function MobileNav({
           "bg-linear-to-b from-white/95 via-gray-50/95 to-white/95",
           "dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90",
           "shadow-[0_2px_20px_-2px_rgba(0,0,0,0.15)]",
-          "backdrop-blur-md cursor-pointer",
+          "cursor-pointer backdrop-blur-md",
           "border border-[rgba(200,200,200,0.8)] dark:border-[rgba(70,70,70,0.7)]",
           isExpanded
-            ? "h-[80vh] rounded-[28px] w-full"
-            : "h-12 rounded-[28px] w-1/2"
+            ? "h-[80vh] w-full rounded-[28px]"
+            : "h-12 w-1/2 rounded-[28px]",
         )}
         onClick={() => !isExpanded && onExpandToggle()}
       >
         {isExpanded ? (
-          <div className="h-full flex flex-col">
+          <div className="flex h-full flex-col">
             <div className="flex-1 overflow-y-auto px-4 py-2">
               {sections.map((section) => (
                 <div key={section.title} className="mb-6">
-                  <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-2">
+                  <h3 className="mb-2 text-sm font-medium text-zinc-900 dark:text-zinc-100">
                     {section.title}
                   </h3>
                   <div className="space-y-1">
@@ -68,14 +68,14 @@ export function MobileNav({
                           href={item.isComingSoon ? "#" : item.href}
                           onClick={onItemClick}
                           className={cn(
-                            "flex items-center justify-between px-3 py-2 rounded-md",
+                            "flex items-center justify-between rounded-md px-3 py-2",
                             item.isComingSoon
-                              ? "opacity-70 cursor-not-allowed"
+                              ? "cursor-not-allowed opacity-70"
                               : isActive
                                 ? item.isLab
                                   ? "bg-purple-500/10 text-purple-700 dark:text-purple-300"
                                   : "bg-zinc-900 dark:bg-white"
-                                : "hover:bg-black/5 dark:hover:bg-white/5"
+                                : "hover:bg-black/5 dark:hover:bg-white/5",
                           )}
                         >
                           <span
@@ -85,17 +85,17 @@ export function MobileNav({
                                 ? item.isLab
                                   ? "text-purple-700 dark:text-purple-300"
                                   : "text-white dark:text-zinc-900"
-                                : "text-zinc-600 dark:text-zinc-400"
+                                : "text-zinc-600 dark:text-zinc-400",
                             )}
                           >
                             {item.title}
                             {item.isNew && !isActive && (
-                              <span className="ml-2 rounded-lg inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase bg-linear-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20 dark:ring-emerald-400/20">
+                              <span className="ml-2 inline-flex items-center rounded-lg bg-linear-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 px-2 py-0.5 text-[9px] font-medium tracking-wide text-emerald-600 uppercase ring-1 ring-emerald-500/20 dark:text-emerald-400 dark:ring-emerald-400/20">
                                 new
                               </span>
                             )}
                             {item.isLab && !isActive && (
-                              <span className="ml-2 rounded-xl inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase bg-linear-to-r from-purple-400/5 via-purple-500/5 to-purple-500/5 text-purple-600 dark:text-purple-400 ring-1 ring-purple-500/20 dark:ring-purple-400/20">
+                              <span className="ml-2 inline-flex items-center rounded-xl bg-linear-to-r from-purple-400/5 via-purple-500/5 to-purple-500/5 px-2 py-0.5 text-[9px] font-medium tracking-wide text-purple-600 uppercase ring-1 ring-purple-500/20 dark:text-purple-400 dark:ring-purple-400/20">
                                 lab
                               </span>
                             )}
@@ -113,22 +113,22 @@ export function MobileNav({
               ))}
             </div>
 
-            <div className="p-4 border-t border-zinc-200 dark:border-zinc-800">
+            <div className="border-t border-zinc-200 p-4 dark:border-zinc-800">
               <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   onExpandToggle();
                 }}
-                className="w-full flex items-center justify-center p-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
+                className="flex w-full items-center justify-center rounded-lg p-3 hover:bg-black/5 dark:hover:bg-white/5"
               >
-                <X className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
+                <X className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />
               </button>
             </div>
           </div>
         ) : (
-          <div className="flex items-center justify-center h-full gap-1">
-            <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate text-center">
+          <div className="flex h-full items-center justify-center gap-1">
+            <span className="truncate text-center text-sm font-medium text-zinc-900 dark:text-zinc-100">
               {currentPage?.title}
             </span>
             <span className="text-xs text-zinc-500 dark:text-zinc-400">
