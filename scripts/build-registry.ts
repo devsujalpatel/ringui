@@ -7,17 +7,6 @@ import path from "path";
 const REGISTRY_BASE_PATH = process.cwd();
 const PUBLIC_FOLDER_BASE_PATH = "public/r";
 
-// const REGISTRY_TYPE_FOLDERS: Record<string, string> = {
-//     "registry:component": "components",
-//     "registry:hook": "hooks",
-//     "registry:lib": "lib",
-//     "registry:block": "blocks",
-// };
-
-/**
- * bun run ./scripts/build-registry.ts
- *
- */
 type File = z.infer<typeof registryItemFileSchema>;
 
 async function writeFileRecursive(filePath: string, data: string) {
@@ -47,7 +36,7 @@ const getComponentFiles = async (files: File[], registryType: string) => {
         type: registryType,
         content: fileContent,
         path: normalizedPath,
-        target: `/components/ringui/${fileName}`,
+        target: `${process.env.NEXT_PUBLIC_URL}/components/ringui/${fileName}`,
       };
     }
     const normalizedPath = file.path.startsWith("/")
